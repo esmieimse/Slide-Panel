@@ -4,11 +4,17 @@
   let items = window.getComputedStyle(document.documentElement).getPropertyValue('--num-of-items');
   let time = window.getComputedStyle(document.documentElement).getPropertyValue('--display-time');
   type = type.trim();
+  speed = Number(speed);
+  if (speed < 1) {
+    speed = 1;
+  } else if (speed > 10) {
+    speed = 10;
+  }
   items = Number(items);
   time = parseInt(time);
   
   var end = 100 / items;
-  var start = (end / 2) * (1 / Number(speed));
+  var start = (end / 2) * (1 / speed);
   var middle = end - start;
 
   let delay = [];
@@ -22,7 +28,7 @@
     delay = [delay, '.panel div:nth-of-type(', i+1, ') { animation-delay: ', i * time, 's }\n'].join('');
   }
 
-  
+
   switch (type) {
     case 'fade':
       animation =  '@keyframes fade {\n' + [
