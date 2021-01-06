@@ -1,7 +1,7 @@
 (function() {
   let type = window.getComputedStyle(document.documentElement).getPropertyValue('--slide-animation');
   let speed = window.getComputedStyle(document.documentElement).getPropertyValue('--slide-speed');
-  let items = window.getComputedStyle(document.documentElement).getPropertyValue('--num-of-items');
+  let slides = window.getComputedStyle(document.documentElement).getPropertyValue('--num-of-slides');
   let time = window.getComputedStyle(document.documentElement).getPropertyValue('--display-time');
   type = type.trim();
   speed = Number(speed);
@@ -10,10 +10,10 @@
   } else if (speed > 10) {
     speed = 10;
   }
-  items = Number(items);
+  slides = Number(slides);
   time = parseInt(time);
   
-  var end = 100 / items;
+  var end = 100 / slides;
   var start = (end / 2) * (1 / speed);
   var middle = end - start;
 
@@ -24,7 +24,7 @@
   css.media = 'all';
   
 
-  for (i = 0; i < items; i++) {
+  for (i = 0; i < slides; i++) {
     delay = [delay, '.panel div:nth-of-type(', i+1, ') { animation-delay: ', i * time, 's }\n'].join('');
   }
 
@@ -60,8 +60,8 @@
       ].join('\n') + '}';
       break;
 
-    case 'slideRtoL':
-      animation = '@keyframes slideRtoL {\n' + [
+    case 'slideRL':
+      animation = '@keyframes slideRL {\n' + [
         '0% {opacity: 0; left: 100%}',
         start + '% {opacity: 1; left: 0}',
         middle + '% {opacity: 1; left: 0}',
@@ -70,8 +70,8 @@
       ].join('\n') + '}';
       break;
 
-    case 'slideLtoR':
-      animation = '@keyframes slideLtoR {\n' + [
+    case 'slideLR':
+      animation = '@keyframes slideLR {\n' + [
         '0% {opacity: 0; left: -100%}',
         start + '% {opacity: 1; left: 0}',
         middle + '% {opacity: 1; left: 0}',
@@ -80,8 +80,8 @@
       ].join('\n') + '}';
       break;
     
-    case 'slideTtoB':
-      animation = '@keyframes slideTtoB {\n' + [
+    case 'slideTB':
+      animation = '@keyframes slideTB {\n' + [
         '0% {opacity: 0; top: -100%}',
         start + '% {opacity: 1; top: 0}',
         middle + '% {opacity: 1; top: 0}',
@@ -90,8 +90,8 @@
       ].join('\n') + '}'; 
       break;
     
-    case 'slideBtoT':
-      animation = '@keyframes slideBtoT {\n' + [
+    case 'slideBT':
+      animation = '@keyframes slideBT {\n' + [
         '0% {opacity: 0; top: 100%}',
         start + '% {opacity: 1; top: 0}',
         middle + '% {opacity: 1; top: 0}',

@@ -7,33 +7,36 @@
     
     <!-- Google Font を追加する場合はここにリンクをコピペ -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <style>
-      :root {
-        /* ===スライドアニメーション選択と速度の設定=== */
-        --slide-animation : slideRtoL;
-        --slide-speed     : 7;
-        
-        /* ===表示させたいアイテム数と1枚あたりの表示時間=== */
-        --num-of-items    : 3;
-        --display-time    : 5s;
+      :root {     
+        /* ===表示させたいスライド枚数=== */
+        --num-of-slides    : 3;
 
         /* ===表示パネルの設定=== */
         --width           : 400px;
         --height          : 80px;
         --background-color: #eeeeee;
+        --border-radius   : 10px;
 
         /* ===表示パネルの枠の設定=== */
         --border-style    : outset;
-        --border-color    : #aaaaaa;
         --border-width    : 10px;
-        --border-radius   : 10px;
+        --border-color    : #aaaaaa;
         
+                
         /* ===フォントの設定=== */
         --font-color      : #000000;
-        --font-size         : 55px;
-        font-family       : 'Play', sans-serif;
+        --font-size       : 55px;
+        font-family       : "Roboto", sans-serif;
+
+        /* ===スライドアニメーションの設定=== */
+        --slide-animation : slideRL;   /*(1)fade (2)rotateX (3)rotateY (4)slideRL (5)slideLR (6)slideTB (7)slideBT から1つ選択*/
+        --slide-speed     : 7;         /*MIN 1<--[遅]--5--[速]-->10 MAX*/
+        
+        /* ===1枚あたりの表示時間=== */
+        --display-time    : 10s;
       }     
 
       /* ===アイコンの色個別設定=== */
@@ -53,28 +56,29 @@
 
   <body>
     <div class="panel">
-      <!-- ===ここからパネルに表示させたい内容の設定=== -->
+      <!-- ===ここからスライドに表示させたい内容の設定=== -->
 
-      <!-- ===パネル1枚目=== -->
-      <div class="item">
+      <!-- ===スライド1枚目=== -->
+      <div class="slide">
         <i class="fab fa-twitter" id="twitter"></i>
         <div>twitter</div>
       </div>
 
-      <!-- ===パネル2枚目=== -->
-      <div class="item">
+      <!-- ===スライド2枚目=== -->
+      <div class="slide">
         <i class="fab fa-twitch" id="twitch"></i>
         <div>twitch</div>
       </div>
 
-      <!-- ===パネル3枚目=== -->
-      <div class="item">
+      <!-- ===スライド3枚目=== -->
+      <div class="slide">
         <i class="fab fa-youtube" id="youtube"></i>
         <div>youtube</div>
       </div>
 
-      <!-- ===パネルn枚目=== -->
-      <div class="item">
+      <!-- スライド増やす場合ここから下4行を必要数だけコピペ -->
+      <!-- ===スライドn枚目=== -->
+      <div class="slide">
         <!-- ここに中身 -->
       </div>
 

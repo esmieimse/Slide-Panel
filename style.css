@@ -21,7 +21,7 @@ i {
   border-radius: var(--border-radius);
 }
 
-.item {
+.slide {
   display: flex;
   position: absolute;
   width: inherit;
@@ -29,6 +29,6 @@ i {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  animation: var(--slide-animation) calc(var(--num-of-items) * var(--display-time)) ease infinite;
+  animation: var(--slide-animation) calc(var(--num-of-slides) * var(--display-time)) ease infinite;
 } 
 
